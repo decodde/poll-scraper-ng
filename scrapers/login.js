@@ -10,18 +10,23 @@ let Login = {
         }
         try{
             let _login = await axios.post(Constants.URLS.LOGIN, body);
-            console.log(_login.data);
+            console.log("First Login:: ",_login.data);
+            if(_login.data.success){
+                return _login.data;
+            }
             if(proceed){
-                let {queue_id} = _login.data;
+                let {queue_id} = await _login.data;
+                console.log(queue_id)
                 if(queue_id){
-                    return await Login.secondLogin(email,password,queue_id);
+                    let _secondLogin = await Login.secondLogin(email,password,queue_id)
+                    return _secondLogin;
                 }
             }
             else return _login.data;
         }
         catch(e){
             console.log(e);
-            return null;
+            return e;
         }
     },
     secondLogin : async (email, password, queueId) => {
@@ -32,12 +37,12 @@ let Login = {
         }
         try{
             let _login = await axios.post(Constants.URLS.LOGIN, body);
-            console.log(_login.data);
+            console.log("Login data:: ",_login.data);
             return _login.data;
         }
         catch(e){
             console.log(e);
-            return null;
+            return e;
         }
     }
 }

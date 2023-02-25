@@ -5,9 +5,14 @@ require("dotenv").config();
 let start = async () => {
     try{
         let test = await Login.login(process.env.EMAIL_ADDRESS,process.env.PASSWORD, true);
-        console.log(test);
-        let {token,full_name} = test;
-        console.log(`Logged in as ${full_name} \n Token is : ${token}`);
+        //console.log(test);
+        if(test){
+            let {token,user} = test;
+            console.log(`Logged in as ${user.full_name} \n Token is : ${token}`);
+        }
+        else{
+            console.log("TEst" ,test)
+        }
     }
     catch(e){
         console.log(e);
