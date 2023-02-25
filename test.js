@@ -6,8 +6,12 @@ let test = async () => {
     
     await pollScrap.initiate();
     console.log(pollScrap.token)
+
+    //Get Election Types
     let _g = await pollScrap.getElectionTypes();
     console.log(_g)
+
+    
 
 }
 
