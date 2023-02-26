@@ -8,10 +8,14 @@ let test = async () => {
     console.log(pollScrap.token)
 
     //Get Election Types
-    let _g = await pollScrap.getElectionTypes();
-    console.log(_g)
+   // let _g = await pollScrap.getElectionTypes();
+    //console.log(_g)
 
-    
+    //Get submitted Document Stats e.g Presdential Election (63f8f25b594e164f8146a213)
+    //Check the amount of documents submitted
+    //PS : the id is the doc_id from election types
+    let _stats = await pollScrap.getDocumentStats("63f8f25b594e164f8146a213");
+    console.log(_stats);
 
 }
 

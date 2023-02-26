@@ -49,6 +49,10 @@ class PollScrap {
         let _r = await this.request(Constants.URLS.ELECTION_TYPES,false,null,true);
         return _r.data;
     }
+    async getDocumentStats (id) {
+        let _r = await this.request(Constants.URLS.STATS(id),false,null,true);
+        return _r.data;
+    }
 }
 
 exports.PollScrap = PollScrap; 
