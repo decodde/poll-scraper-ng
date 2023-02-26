@@ -53,6 +53,10 @@ class PollScrap {
         let _r = await this.request(Constants.URLS.STATS(id),false,null,true);
         return _r.data;
     }
+    async getPollingUnitDocument (electionType , pollingUnitId) {
+        let _r = await this.request(Constants.URLS.PU_DOCUMENT(electionType, pollingUnitId), false, null, true);
+        return _r.data;
+    }
 }
 
 exports.PollScrap = PollScrap; 

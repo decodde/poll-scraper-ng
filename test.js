@@ -17,6 +17,9 @@ let test = async () => {
     let _stats = await pollScrap.getDocumentStats("63f8f25b594e164f8146a213");
     console.log(_stats);
 
+    //Get Polling Unit Document
+    let pollingDoc = await pollScrap.getPollingUnitDocument("63f8f25b594e164f8146a213","63f8f92c594e164f814a745e");
+    console.log(pollingDoc)
 }
 
 test();
